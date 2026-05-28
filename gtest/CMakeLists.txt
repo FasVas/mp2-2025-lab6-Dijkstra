@@ -1,6 +1,8 @@
-set(target "gtest")
+set(target "run_tests")
 
-add_library(${target} STATIC gtest-all.cc)
+add_executable(${target} gtest-all.cc "tests.cpp")
+
+target_include_directories(${target} PRIVATE "..")
 
 if((${CMAKE_CXX_COMPILER_ID} MATCHES "GNU" OR
     ${CMAKE_CXX_COMPILER_ID} MATCHES "Clang") AND
